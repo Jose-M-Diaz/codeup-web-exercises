@@ -5,19 +5,21 @@ var welcomeAlert =alert("Welcome to my Website!");
 console.log(welcomeAlert);
 
 var favoriteColor = prompt("What is your favorite color?");
-console.log("Ha! " + favoriteColor + " is my favorite color too.");
+    alert("Ha! " + favoriteColor + " is my favorite color too.");
 
 
 // 1st Exercise
+//toFixed(fractionDigits:2) would allow total cost to have decimal to show cents
+alert("All rentals will have a cost of $3 per day.");
 var pricePerDay = 3;
 var mermaid = prompt("How Many days did you rent The Little Mermaid?");
 console.log(mermaid + " days");
 var broBear = prompt("How many days did you rent Brother Bear?");
 console.log(broBear + " days");
-var hercules = prompt("How many days did you rent Hercules?");
+var hercules = prompt("How many days did you rent Hercules?"); //parseFloat is another option written as parseFloat(prompt(....))
 console.log(hercules + " days");
 var totalCost = (parseInt(mermaid) + parseInt(broBear) + parseInt(hercules)) * pricePerDay;
-var totalCostAlert = alert("Your total for the rentals is " + "$"+totalCost);
+var totalCostAlert = alert("Your total for the rentals is $"+ totalCost);
 console.log(totalCostAlert);
 
 
@@ -41,7 +43,7 @@ console.log(totalPaycheckAlert);
 
 // 3rd exercise
 var enrollment = confirm("Are you interested in enrolling for class?");
-console.log(enrollment);
+console.log(enrollment);  //after going through lesson, realized i did not have to log each entry
 var classFull = confirm("Is the class you are interested in, currently full?");
 console.log(classFull);
 var scheduleConflict = confirm("Does the class start time conflict with your schedule?");
