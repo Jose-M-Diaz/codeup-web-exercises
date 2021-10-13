@@ -48,7 +48,7 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Pass the `randomColor` variable to your function and console.log the results.
  * You should see a different message every time you refresh the page
  */
-function randomColor() {
+function analyzeColor() {
 
     if (randomColor === 'blue') {
         return 'blue is the color of the sky';
@@ -58,13 +58,27 @@ function randomColor() {
         return 'I don\'t know anything about cyan';
     } else {
         return 'That is not a color I am familiar with';
-    }
+    };
 };
-    console.log(randomColor());
+    console.log(analyzeColor(randomColor));
     /**
  * TODO:
  * Refactor your above function to use a switch-case statement
  */
+    switch(randomColor) {
+        case 'blue':
+            console.log('blue is the color of the sky');
+            break;
+        case 'red':
+            console.log('Strawberries are red');
+            break;
+        case 'cyan':
+            console.log('I don\'t know anything about cyan');
+            break;
+        default:
+            console.log('That is not a color I am familiar with');
+            break;
+    };
 
 /**
  * TODO:
@@ -72,6 +86,21 @@ function randomColor() {
  * user to your `analyzeColor` function. Alert the return value from your
  * function to show it to the user.
  */
+ var faveColor = analyzeColor(prompt('what is your fave color'));
+     switch (faveColor) {
+         case 'blue':
+             alert('blue is the color of the sky');
+             break;
+         case 'red':
+             alert('Strawberries are red');
+             break;
+         case 'cyan':
+             alert('I don\'t know anything about cyan');
+             break;
+         default:
+             alert('That is not a color I am familiar with');
+             break;
+    };
 
 /* ########################################################################## */
 
@@ -94,7 +123,25 @@ function randomColor() {
  * Test your function by passing it various values and checking for the expected
  * return value.
  */
-
+function calculateTotal(luckNumber, totalAmount) {
+    if (luckNumber === 0) {
+        return totalAmount;
+    }else if (luckNumber === 1) {
+        return totalAmount - (totalAmount * .1);
+    }else if (luckNumber === 2) {
+        return totalAmount - (totalAmount * .25);
+    }else if (luckNumber === 3) {
+        return totalAmount - (totalAmount * .35);
+    }else if (luckNumber === 4) {
+        return totalAmount - (totalAmount * .5);
+    }else if (luckNumber === 5) {
+        return totalAmount - totalAmount;
+    }
+};
+console.log(calculateTotal(0,100));
+console.log(calculateTotal(4,100));
+console.log(calculateTotal(3,100));
+console.log(calculateTotal(5,100));
 /**
  * TODO:
  * Uncomment the line below to generate a random number between 0 and 6.
@@ -103,7 +150,9 @@ function randomColor() {
  * price before the discount was, and what their price after the discount is.
  */
 // Generate a random number between 0 and 6
-// var luckyNumber = Math.floor(Math.random() * 6);
+ var luckyNumber = Math.floor(Math.random() * 6);
+ var originalCost = calculateTotal(parseFloat(prompt("what is the retail cost of your item")));
+
 
 /**
  * TODO:
@@ -121,6 +170,19 @@ function randomColor() {
  * Can you refactor your code to use functions?
  * HINT: The way we prompt for a value could be improved
  */
+var input = confirm("would you like to enter a number?"));
+if(input === true) {
+    var number = prompt("enter your number.");
+}else {
+    alert("have a nice day, goodbye");
+};
+
+if(number === false) {
+    alert("That was not a number");
+}else {
+    if(number)
+};
+
 
 
 })();
