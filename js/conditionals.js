@@ -1,5 +1,7 @@
 "use strict";
-(function() {
+(function(){
+
+
 
 
 /* ########################################################################## */
@@ -33,7 +35,7 @@ if (color === 'blue') {
     return 'That is not a color I am familiar with';
 }
 };
-console.log(analyzeColor('green'));
+console.log(analyzeColor('red'));
 // Don't change the next two lines!
 // These lines create two variables for you:
 // - `colors`: a list of the colors of the rainbow
@@ -46,19 +48,19 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Pass the `randomColor` variable to your function and console.log the results.
  * You should see a different message every time you refresh the page
  */
-function analyzeColor(randomColor) {
+function randomColor() {
 
-    if (randomColor === colors) {
+    if (randomColor === 'blue') {
         return 'blue is the color of the sky';
-    } else if (randomColor === colors) {
+    } else if (randomColor === 'red') {
         return 'Strawberries are red';
-    } else if (randomColor === colors) {
+    } else if (randomColor === 'cyan') {
         return 'I don\'t know anything about cyan';
     } else {
         return 'That is not a color I am familiar with';
     }
 };
-    console.log(analyzeColor());
+    console.log(randomColor());
     /**
  * TODO:
  * Refactor your above function to use a switch-case statement
@@ -121,4 +123,4 @@ function analyzeColor(randomColor) {
  */
 
 
-}());
+})();
