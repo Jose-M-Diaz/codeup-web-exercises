@@ -170,17 +170,25 @@ console.log(calculateTotal(5,100));
  * Can you refactor your code to use functions?
  * HINT: The way we prompt for a value could be improved
  */
-var input = confirm("would you like to enter a number?"));
+var input = confirm("would you like to enter a number?");
 if(input === true) {
     var number = prompt("enter your number.");
 }else {
     alert("have a nice day, goodbye");
 };
 
-if(number === false) {
+if(parseFloat(number) === false) {
     alert("That was not a number");
 }else {
-    if(number)
+    if(number % 2 == 0) {
+        alert("That number is even")
+        alert("That number plus 100 is " + (parseFloat(number) + 100))
+        alert(Math.sign(number))
+    }else{
+        alert("that number is odd")
+        alert("That number plus 100 is " + (parseFloat(number) + 100))
+        alert(Math.sign(number))
+    }
 };
 
 
