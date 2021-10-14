@@ -35,7 +35,10 @@ if (color === 'blue') {
     return 'That is not a color I am familiar with';
 }
 };
+console.log(analyzeColor('blue'));
 console.log(analyzeColor('red'));
+console.log(analyzeColor('cyan'));
+console.log(analyzeColor('green'));
 // Don't change the next two lines!
 // These lines create two variables for you:
 // - `colors`: a list of the colors of the rainbow
@@ -48,24 +51,13 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Pass the `randomColor` variable to your function and console.log the results.
  * You should see a different message every time you refresh the page
  */
-function analyzeColor() {
 
-    if (randomColor === 'blue') {
-        return 'blue is the color of the sky';
-    } else if (randomColor === 'red') {
-        return 'Strawberries are red';
-    } else if (randomColor === 'cyan') {
-        return 'I don\'t know anything about cyan';
-    } else {
-        return 'That is not a color I am familiar with';
-    };
-};
-    console.log(analyzeColor(randomColor));
-    /**
+/**
  * TODO:
  * Refactor your above function to use a switch-case statement
  */
-    switch(randomColor) {
+var color = analyzeColor(randomColor);
+    switch(color) {
         case 'blue':
             console.log('blue is the color of the sky');
             break;
@@ -73,20 +65,19 @@ function analyzeColor() {
             console.log('Strawberries are red');
             break;
         case 'cyan':
-            console.log('I don\'t know anything about cyan');
+            console.log('i dont\'t know anything about cyan');
             break;
         default:
-            console.log('That is not a color I am familiar with');
+            console.log('That is not a color I am familiar ' + color);
             break;
-    };
-
+}
 /**
  * TODO:
  * Prompt the user for a color when the page loads, and pass the input from the
  * user to your `analyzeColor` function. Alert the return value from your
  * function to show it to the user.
  */
- var faveColor = analyzeColor(prompt('what is your fave color'));
+ var faveColor = analyzeColor(prompt('what is your fave color').toLowerCase());
      switch (faveColor) {
          case 'blue':
              alert('blue is the color of the sky');
@@ -151,8 +142,8 @@ console.log(calculateTotal(5,100));
  */
 // Generate a random number between 0 and 6
  var luckyNumber = Math.floor(Math.random() * 6);
- var originalCost = calculateTotal(parseFloat(prompt("what is the retail cost of your item")));
 
+ var originalCost = calculateTotal(parseFloat(prompt("what is the retail cost of your item")));
 
 /**
  * TODO:
