@@ -14,6 +14,17 @@
     var hadBreakfastMessage = (hadBreakfast) ? "I had a delicious breakfast!" : "I could really go for some iHop breakfast";
     console.log(hadBreakfastMessage);
 
+ var pokemon = {
+     name: "Arcanine",
+     type: "fire",
+     weight: 341.7+"LBs",
+     category: "Legendary",
+     weakness: "water,ground,rock",
+     abilities: "flash fire, intimidate"};
+console.log(pokemon);
+
+
+
 })();
 
 
