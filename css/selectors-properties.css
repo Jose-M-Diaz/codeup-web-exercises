@@ -1,0 +1,15 @@
+h1 {
+    color: orange;
+    background-color:green;
+}
+
+/* class selector */
+
+.orange-bg{
+    background-color:orange;
+}
+/* id selector*/
+#back-to-top{
+    text-decoration: none;
+    color: hotpink;
+}
