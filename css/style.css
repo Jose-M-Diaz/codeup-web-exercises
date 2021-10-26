@@ -1,4 +1,13 @@
-.fancy-header {
+h1, .fancy-header {
     color: purple;
     text-decoration: underline;
+    text-align: center;
 }
+h2 {
+    color: green;
+    text-decoration: underline;
+}
+body {
+    background-color: aquamarine;
+}
+
