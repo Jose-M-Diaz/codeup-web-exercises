@@ -57,7 +57,7 @@ function second(array) {
     return array [1];
     }
 function last(array) {
-    return array[4];
+    return array.at(-1);
     }
  console.log(first(names));
  console.log(second(names));
