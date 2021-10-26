@@ -117,7 +117,9 @@ var books = [
      *      ---
      *      ...
      */
-
+for(var i = 0; i < books.length; i++){
+    console.log("Books # " + (i + 1) + "\nTitle: " + books[i].title + "\nAuthor: " + books[i].author.firstName + " " + books[i].author.lastName);
+}
     /**
      * Bonus:
      * - Create a function named `createBook` that accepts a title and author
@@ -128,5 +130,25 @@ var books = [
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
+var array =[];
+function createBook(title, author){
+    var names = author.split(" ");
+        var book = {
+            title: title,
+            author: {
+                firstName: names[0],
+                lastName: names[1]
+            }
+        }
+    return array.push(book);
+}
+createBook("Lord of the Rings","J.r.r. Tolkein")
+    console.log(array);
 
+function showBookInfo(arr) {
+    for(var x = 0; x < arr.length; x++ ){
+        console.log("Books # " + (x + 1) + "\nTitle: " + array[x].title + "\nAuthor: " + array[x].author.firstName + " " + array[x].author.lastName);
+    }
+}
+showBookInfo(array);
 })();
