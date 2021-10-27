@@ -4,10 +4,51 @@ h1, .fancy-header {
     text-align: center;
 }
 h2 {
-    color: green;
+    color: darkred;
     text-decoration: underline;
 }
 body {
     background-color: aquamarine;
+
 }
+.background-image {
+    background-image: url(../img/cq5dam.web.1440.660.webp);
+    padding-bottom: 100px;
+}
+ul, ol {
+    list-style: square;
+}
+header, main, footer {
+    font-family: fantasy;
+}
+.table-title {
+    text-align: center;
+}
+table {
+    text-shadow: 2px 2px yellow;
+    font-size: 2em;
+    padding-top: 50px;
+    padding-right: 90px;
+    padding-bottom: 10px;
+    padding-left: 470px;
+
+}
+#guarantee{
+    text-align: center;
+    font-weight: bold;
+    text-decoration: underline;
+}
+a:link {
+    color: deeppink;
+}
+a:hover {
+    color: orange;
+}
+a:visited {
+    color: black;
+}
+a:active {
+    color: green;
+}
+
 
