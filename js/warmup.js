@@ -55,6 +55,13 @@ function array(arr) {
 }
 console.log(array(wrestlers));
 
+var circle = {
+    radius: 36
+}
+var area = Math.round(Math.PI * (Math.pow(circle.radius, 2)));
+    console.log(area);
+
+
 })();
 
 
