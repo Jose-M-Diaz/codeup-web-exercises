@@ -1,0 +1,45 @@
+/*body{
+    background-color: black;
+}
+
+#content-area-1{
+    background-color: coral;
+    width: 100px;
+    height: 100px;
+}
+
+#content-area-2{
+    background-color: cyan;
+    width: 100px;
+    height: 100px;
+}*/
+
+body{
+    background-color: palegoldenrod;
+}
+.step {
+    background-color: #6F4C5B;
+    color: whitesmoke;
+    /*width: calc(100% - 20px);*/
+    width: content-box;
+    height: fit-content;
+    padding: 10px; /*top-bottom, left-right*/
+    border-radius: 20%;
+    margin: 10px;
+}
+
+.ingredient{
+    background-color: #6F4C5B;
+    color: whitesmoke;
+    width: content-box;
+    height: fit-content;
+    padding: 10px;
+}
+
+.recipe-container{
+    border: 2px solid red; /*size, style, color*/
+    width: 30%;
+    margin: 0 auto;
+}
+
+
