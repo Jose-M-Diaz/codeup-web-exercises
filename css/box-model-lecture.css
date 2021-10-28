@@ -25,7 +25,7 @@ body{
     height: fit-content;
     padding: 10px; /*top-bottom, left-right*/
     border-radius: 20%;
-    margin: 10px;
+    margin: 15px;
 }
 
 .ingredient{
@@ -34,10 +34,11 @@ body{
     width: content-box;
     height: fit-content;
     padding: 10px;
+    border-radius: 15px;
 }
 
 .recipe-container{
-    border: 2px solid red; /*size, style, color*/
+    border: 2px dotted saddlebrown; /*size, style, color*/
     width: 30%;
     margin: 0 auto;
 }
