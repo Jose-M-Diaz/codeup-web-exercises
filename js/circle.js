@@ -8,13 +8,15 @@
         getArea: function () {
             // TODO: complete this method
             // hint: area = pi * radius^2
-            var area = Math.PI * circle.radius^2;
-            return area; // TODO: return the proper value
+            // TODO: return the proper value
+            var area = Math.PI * (Math.pow(circle.radius,2));
+            console.log(area);
         },
+
 
         logInfo: function (doRounding) {
             // TODO: complete this method.
-            if(doRounding === true) {
+            if(typeof doRounding === !isNaN) {
                 console.log(Math.round(doRounding));
             }else {
 
