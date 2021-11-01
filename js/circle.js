@@ -16,10 +16,10 @@
 
         logInfo: function (doRounding) {
             // TODO: complete this method.
-            if(typeof doRounding === !isNaN) {
-                console.log(Math.round(doRounding));
+            if(typeof doRounding == !isNaN) {
+                return (Math.round(doRounding));
             }else {
-
+                return doRounding;
             }
             // If doRounding is true, round the result to the nearest integer.
             // Otherwise, output the complete value
