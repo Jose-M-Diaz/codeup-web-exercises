@@ -51,14 +51,15 @@ a {
 .profile {
     background: var(--light-bg);
     height: 80px;
+    position: relative;
 }
 .profile-image {
     position: absolute;
-    top: 240px;
+    top: -28px;
 }
 .profile-form {
     float: right;
-    padding: 20px 0;
+    line-height: 80px;
 }
 .btn {
     border: 1px solid var(--main-link-color);
@@ -99,7 +100,7 @@ a {
     margin: 0 .5em;
 }
 .container {
-    margin: 2em;
+    margin-top: 2em;
 }
 .media {
     width: 100%;
@@ -109,7 +110,7 @@ a {
     overflow: auto;
 }
 .media-image {
-    width: 50px;
+    max-width: 50px;
     float: left;
     margin-top: 1.33em;
 }
