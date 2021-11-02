@@ -61,6 +61,41 @@ var circle = {
 var area = Math.round(Math.PI * (Math.pow(circle.radius, 2)));
     console.log(area);
 
+    var groceries = [
+        {
+            name: "carrots",
+            quantity: 5
+        },{
+            name: "yams",
+            quantity: 50
+        },{
+            name: "oranges",
+            quantity: 9
+        },{
+            name: "onions",
+            quantity: 2
+        },{
+            name: "cucumbers",
+            quantity: 6
+        },{
+            name: "potatoes",
+            quantity: 8
+        }
+    ];
+function getHighestCount(array){
+    var obj = {
+        name: 'something',
+        quantity: 0
+    }
+    array.forEach(function(el){
+        if(el.quantity > obj.quantity){
+            obj = el;
+        }
+    });
+    return obj;
+}
+console.log(getHighestCount(groceries));
+
 
 })();
 
