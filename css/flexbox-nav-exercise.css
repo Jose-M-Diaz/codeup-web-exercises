@@ -3,6 +3,7 @@
 }
 body {
     margin: 0;
+    padding: 0;
 }
 nav {
     background: #ccc;
@@ -13,11 +14,9 @@ ul {
     padding: 0;
     margin: 0;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
 
-}
-nav ul li:nth-child(6) {
-    margin-left: auto;
 }
 nav a {
     text-decoration: none;
@@ -25,17 +24,19 @@ nav a {
     font-family: 'WorkSans', sans-serif;
     display: inline-block;
     padding: 1em;
-    font-weight: bold;
 }
 nav a:hover {
     color: blue;
 }
-.logo {
+#logo>a{
     font-family: 'Montserrat', sans-serif;
     padding: .2em;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    font-size: 3em;
+    position: absolute;
+    top: -13px;
+    left: calc(50% - 82.219px);
 
+}
+ #logo {
+     flex-grow: 1;
+ }
