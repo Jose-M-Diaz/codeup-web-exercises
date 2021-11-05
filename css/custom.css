@@ -1,5 +1,6 @@
 .jumbotron {
-    margin: auto;
+    opacity: .8;
+    margin: 2em;
 }
 h1 {
     text-align: center;
