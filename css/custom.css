@@ -1,8 +1,18 @@
 .jumbotron {
-    opacity: .8;
-    margin: 2em;
+    /*width: 100:*/
+    background-size: cover;
+    background-image: url(../img/pizza.png);
+    margin: auto -10em;
 }
 h1 {
     text-align: center;
+    opacity: .6;
+    background-color: white;
+    margin: auto -3em;
+}
 
+@media screen and (max-width:576px) {
+    .jumbotron {
+        display: none;
+    }
 }
