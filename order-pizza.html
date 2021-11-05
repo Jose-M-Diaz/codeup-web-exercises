@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="css/custom.css">
     <title>Order Pizza</title>
@@ -37,25 +38,25 @@
         </ul>
     </div>
 </nav>
-
+<!-- BODY OF WEBPAGE -->
 <div class="container">
     <div class="jumbotron jumbotron-fluid" style="background-image: url(img/pizza.png)">
         <div class="jumbotron">
-            <h1 class="display-4">Hello, world!</h1>
+            <h1 class="display-4">Welcome to Pizza World!</h1>
         </div>
     </div>
 </div>
 <h2>Build your own Pizza!</h2>
 <hr>
-<ul class="nav nav-tabs">
-    <li class="nav-item">
-        <a class="nav-link active" href="#"><span class="badge badge-pill badge-secondary">1</span> Size and Crust</a>
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+        <a class="nav-link active" id="size-crust" data-toggle="tab" href="#size-crust" role="tab" aria-controls="home" aria-selected="true"><span class="badge badge-pill badge-secondary">1</span> Size and Crust</a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#"><span class="badge badge-pill badge-secondary">2</span> Cheese and Sauce</a>
+    <li class="nav-item" role="presentation">
+        <a class="nav-link" id="cheese-sauce" data-toggle="tab" href="#cheese-sauce" role="tab" aria-controls="home" aria-selected="true"><span class="badge badge-pill badge-secondary">2</span> Cheese and Sauce</a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#"><span class="badge badge-pill badge-secondary">3</span> Toppings</a>
+    <li class="nav-item" role="presentation">
+        <a class="nav-link" id="toppings" data-toggle="tab" href="#toppings" role="tab" aria-controls="home" aria-selected="true"><span class="badge badge-pill badge-secondary">3</span> Toppings</a>
     </li>
 </ul>
 <div class="card">
@@ -77,13 +78,92 @@
             <div class="list-group radio-list-group">
                 <div class="list-group-item">&nbsp;<label><input type="radio" name="ra" value="1"><span class="list-group-item-text"><i class="fa fa-fw"></i> Medium(12")</span></label></div>
                 <div class="list-group-item">&nbsp;<label><input type="radio" name="ra" value="1"><span class="list-group-item-text"><i class="fa fa-fw"></i> Large(14")</span></label></div>
-
             </div>
         </div>
-
     </div>
     <div class="card-footer">
-        <p class="text-right"><a href="#" class="btn btn-primary">Next Step</a></p>
+        <div class="float-right"><a href="#" class="btn btn-primary">Next Step</a></div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header p-3 mb-2 bg-primary text-white">
+        Choose Cheese and Sauce
+    </div>
+    <div class="card-body">
+        <div class="card mb-3">
+            <div class="card-header">
+                Cheese
+            </div>
+            <p class="text p-2">How Much?</p>
+            <select class="form-control form-control-lg">
+                <option>Light</option>
+                <option>Normal</option>
+                <option>Extra</option>
+                <option>Double</option>
+            </select>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                Sauce
+            </div>
+            <p class="text p-2">What Type?</p>
+            <select class="form-control form-control-lg">
+                <option>Tomato Sauce</option>
+                <option>Marinara Sauce</option>
+                <option>BBQ Sauce</option>
+                <option>Alfredo Sauce</option>
+            </select>
+            <p class="text p-2">How Much?</p>
+            <select class="form-control form-control-lg">
+                <option>Light</option>
+                <option>Normal</option>
+                <option>Extra</option>
+            </select>
+        </div>
+    </div>
+    <div class="card-footer">
+        <div class="float-right">
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <a href="#" class="btn btn-primary">Previous Step</a>
+                <a href="#" class="btn btn-primary">Next Step</a>
+            </div><br>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header p-3 mb-2 bg-primary text-white">
+        Choose Toppings
+    </div>
+    <div class="card-body">
+        <div class="card mb-3">
+            <div class="card-header">
+                Choose Meat
+            </div>
+            <div class="list-group checkbox-list-group">
+                <div class="list-group-item">&nbsp;<label><input type="checkbox" name="ra" value="1"><span class="list-group-item-text"><i class="fa fa-fw"></i> Beef</span></label></div>
+                <div class="list-group-item">&nbsp;<label><input type="checkbox" name="ra" value="1"><span class="list-group-item-text"><i class="fa fa-fw"></i> Ham</span></label></div>
+                <div class="list-group-item">&nbsp;<label><input type="checkbox" name="ra" value="1"><span class="list-group-item-text"><i class="fa fa-fw"></i> Philly Steak</span></label></div>
+                <div class="list-group-item">&nbsp;<label><input type="checkbox" name="ra" value="1"><span class="list-group-item-text"><i class="fa fa-fw"></i> Bacon</span></label></div>
+            </div>
+        </div>
+        <div class="card mb-3">
+            <div class="card-header">
+                Choose Non-Meat
+            </div>
+            <div class="list-group checkbox-list-group">
+                <div class="list-group-item">&nbsp;<label><input type="checkbox" name="ra" value="1"><span class="list-group-item-text"><i class="fa fa-fw"></i> Green Peppers</span></label></div>
+                <div class="list-group-item">&nbsp;<label><input type="checkbox" name="ra" value="1"><span class="list-group-item-text"><i class="fa fa-fw"></i> Mushrooms</span></label></div>
+                <div class="list-group-item">&nbsp;<label><input type="checkbox" name="ra" value="1"><span class="list-group-item-text"><i class="fa fa-fw"></i> Onions</span></label></div>
+                <div class="list-group-item">&nbsp;<label><input type="checkbox" name="ra" value="1"><span class="list-group-item-text"><i class="fa fa-fw"></i> Jalape&ntilde;o Peppers</span></label></div>
+            </div>
+            <div class="card-footer">
+                <div class="float-right">
+                    <a href="#" class="btn btn-primary">Checkout<i class="fas fa-shopping-cart"></i></a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 </body>
