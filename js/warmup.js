@@ -131,6 +131,32 @@ console.log(getHighestCount(groceries));
     console.log(sortByName(products));
 
 
+    var bBallPlayers = [
+        {
+            name: "Hakeem Olajuwon",
+            height: 213
+        }, {
+            name: "Muggsy Bogues",
+            height: 160
+        }, {
+            name: "Chris Paul",
+            height: 183
+        }, {
+            name: "Bol Bol",
+            height: 218
+        }, {
+            name: "Moochie Norris",
+            height: 185
+        }, {
+            name: "Manu Ginobili",
+            height: 198
+        }
+    ];
+    var lowestHeight = bBallPlayers.filter((bBallPlayer) => {
+        return bBallPlayer.height < 180;
+    })
+    console.log(lowestHeight);
+
 
 })();
 
