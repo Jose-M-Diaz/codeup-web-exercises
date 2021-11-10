@@ -157,6 +157,32 @@ console.log(getHighestCount(groceries));
     })
     console.log(lowestHeight);
 
+    var myCharacter = {
+        name: 'Elven Ranger',
+        hitPoints: 100,
+        class: 'Warrior',
+        abilities: {
+            attack: function(obj) {
+                console.log(myCharacter.name + " hit " + obj.name + " for " + myCharacter.weapon.damage + ":");
+                obj.hitPoints -= myCharacter.weapon.damage;
+                console.log(obj.name + " has " + obj.hitPoints + " left.");
+            },
+        },
+        magicPoints: 0,
+        weapon: {
+            name: 'Silver Sabre',
+            damage: 16,
+            type: 'sword'
+        }
+    }
+
+    var enemy = {
+        name: 'Savage Orc',
+        hitPoints: 100,
+        class: 'Warrior',
+        magicPoints: 0,
+    }
+    myCharacter.abilities.attack(enemy);
 
 })();
 
