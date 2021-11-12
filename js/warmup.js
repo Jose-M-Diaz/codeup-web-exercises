@@ -184,6 +184,11 @@ console.log(getHighestCount(groceries));
     }
     myCharacter.abilities.attack(enemy);
 
+    function randomEL(arr) {
+        return arr[Math.floor(Math.random() * arr.length)]
+    }
+
+    console.log();
 })();
 
 
