@@ -1,0 +1,15 @@
+#title {
+    text-align: center;
+}
+.class {
+    display: flex;
+    justify-content: space-around;
+
+}
+.codeup {
+    width: 20%;
+}
+#proficiency {
+    padding-bottom: 15em;
+    padding-right: 2em;
+}
