@@ -4,12 +4,25 @@
     <meta charset="UTF-8">
   <title>Konami Code</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
         #metal {
             height: auto;
             width: auto;
             display: flex;
             justify-content: center;
         }
+        h1{
+            color: white;
+            text-shadow: 1px 1px 2px black, 0 0 25px red, 0 0 5px darkred;
+            font-family: 'Press Start 2P', sans-serif;
+            font-size: 64px;
+        }
+        img{
+            display: flex;
+            justify-content: center;
+        }
+
         </style>
 </head>
 <body>
@@ -55,6 +68,7 @@
         //checks for code
         if (JSON.stringify(userCode) === JSON.stringify(konami)) {
             var sound = new Audio('audio/arcade.wav');
+            $('h1').css('visibility', 'hidden');
             $('body').css({'background': 'url(img/konamicode.jpeg)', 'background-size': 'cover', 'background-repeat': 'no-repeat'});
             sound.play();
         }if(JSON.stringify(userCode) === JSON.stringify(smashBros)) {
