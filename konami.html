@@ -3,39 +3,82 @@
 <head>
     <meta charset="UTF-8">
   <title>Konami Code</title>
-<!--    <style>-->
-<!--        body {-->
-<!--            background-image: url('img/konamicode.jpeg');-->
-<!--            background-repeat: no-repeat;-->
-<!--            background-size: cover;-->
-<!--        }-->
-<!--        h1, label {-->
-<!--            color: #fb0019;-->
-<!--        }-->
-<!--        </style>-->
+    <style>
+        #metal {
+            height: auto;
+            width: auto;
+            display: flex;
+            justify-content: center;
+        }
+        </style>
 </head>
 <body>
-<h1 style="text-align: center">Got any cheat codes?</h1>
-
+<h1 id="title" style="text-align: center">Got any cheat codes?</h1>
+<div style="text-align: center">
+<img id="image" src="" alt="" style="display: inline">
+</div>
+<div id="game" style="float: right"></div>
+<div id="metal"></div>
 
 </body>
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script src="/js/jquery.js"></script>
 <script>
     "use strict";
-    var code = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
-    var userCode =[];
 
+
+    var konami = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
+    var smashBros =[38, 38, 38, 65, 66, 40, 13]
+    var metalSlug = [40, 40,37,39,65,65,13]
+    var userCode =[];
+    var img = document.getElementById('image');
+
+    //shows images with keypress
     $(document).keyup(function(event){
         console.log(event.keyCode);
         userCode.push(event.keyCode);
-        if (JSON.stringify(userCode) === JSON.stringify(code)) {
-            $('body').css({'background': 'url(img/konamicode.jpeg)', 'background-size': 'cover', 'background-repeat': 'no-repeat'});
-
-
+        if(event.keyCode === 38){
+            img.src = 'img/Up-Arrow.webp';
+        }else if(event.keyCode === 40){
+            img.src = 'img/Down-Arrow.webp';
+        }else if(event.keyCode === 37){
+            img.src = 'img/Left-Arrow.webp';
+        }else if(event.keyCode === 39){
+            img.src = 'img/Right-Arrow.webp';
+        }else if(event.keyCode === 66){
+            img.src = 'img/B-key.webp';
+         }else if(event.keyCode === 65){
+            img.src = 'img/A-key.webp';
+        }else{
+            img.style.visibility = 'hidden';
         }
-    });
+        //checks for code
+        if (JSON.stringify(userCode) === JSON.stringify(konami)) {
+            var sound = new Audio('audio/arcade.wav');
+            $('body').css({'background': 'url(img/konamicode.jpeg)', 'background-size': 'cover', 'background-repeat': 'no-repeat'});
+            sound.play();
+        }if(JSON.stringify(userCode) === JSON.stringify(smashBros)) {
+            var falcon = new Audio('audio/falconpunch.swf.mp3')
+            $('body').css({'background': 'url(img/falcon.png)', 'background-repeat': 'no-repeat'});
+            document.getElementById("title").innerHTML = 'Falcon PUUUNCH!!!';
+            falcon.play();
+            document.getElementById('game').innerHTML = '<iframe src="https://www.retrogames.cc/embed/20082-f-zero-usa.html" allow="autoplay" width="600" height="450" frameborder="no" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" scrolling="no"></iframe>'
+        }
+        if (JSON.stringify(userCode) === JSON.stringify(metalSlug)) {
+            $('body').css({'background': 'url(img/metalslug.png)', 'background-size': 'cover', 'background-repeat': 'no-repeat'});
+            document.getElementById("title").innerHTML = 'Grenade out!!!'
+            document.getElementById('metal').innerHTML = '<iframe src="https://www.retrogames.cc/embed/9162-metal-slug-4-ngm-2630.html?autoplay=1" allow="autoplay" width="600" height="450" frameborder="no" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" scrolling="no"></iframe>'
+            };
 
+
+        // function showImage() {
+        //     var img = document.getElementById('image');
+        //     if(keyCode === 38){
+        //         img.src  = 'img/Up-Arrow.webp';
+        //     }
+        // }
+        // showImage();
+    });
 </script>
 
 </html>
