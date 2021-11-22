@@ -3,32 +3,39 @@
 <head>
     <meta charset="UTF-8">
   <title>Konami Code</title>
-    <style>
-        body {
-            background-image: url('img/konamicode.jpeg');
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-        h1, label {
-            color: #fb0019;
-        }
-        </style>
+<!--    <style>-->
+<!--        body {-->
+<!--            background-image: url('img/konamicode.jpeg');-->
+<!--            background-repeat: no-repeat;-->
+<!--            background-size: cover;-->
+<!--        }-->
+<!--        h1, label {-->
+<!--            color: #fb0019;-->
+<!--        }-->
+<!--        </style>-->
 </head>
 <body>
-<h1 style="text-align: center">Konami Code</h1>
-<form class="form" style="text-align: center">
-    <label for="cheatCode">Got a Cheat Code?</label>
-    <br>
-    <br>
-    <input type="text" id="cheatCode" name="cheatCode" placeholder="Enter Code">
-</form>
+<h1 style="text-align: center">Got any cheat codes?</h1>
+
+
+</body>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script src="/js/jquery.js"></script>
 <script>
-  "use strict";
+    "use strict";
+    var code = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
+    var userCode =[];
 
-  $(document).keyup(function(event){
-    console.log(event.keyCode);
-  });
+    $(document).keyup(function(event){
+        console.log(event.keyCode);
+        userCode.push(event.keyCode);
+        if (JSON.stringify(userCode) === JSON.stringify(code)) {
+            $('body').css({'background': 'url(img/konamicode.jpeg)', 'background-size': 'cover', 'background-repeat': 'no-repeat'});
+
+
+        }
+    });
+
 </script>
-</body>
+
 </html>

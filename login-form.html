@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <title>Login</title>
     <link rel="stylesheet" href="css/login.css">
+    <style>
+        #error{
+            display: none;
+            padding: 1em;
+        }
+    </style>
 </head>
 <body>
 <main>
@@ -17,9 +23,20 @@
                 <label for="password" class="form-label">Password</label>
                 <input type="password" id="password" name="password" class="form-control">
             </div>
-            <button class="btn btn-block">Login</button>
+            <small id="error">We're sorry your username/password was not correct</small>
+            <button id="submit-button" class="btn btn-block">Login</button>
         </fieldset>
     </form>
 </main>
+<script>
+    var username = 'regulus2021'
+    var password = "gocodeup"
+    $(document).ready(function(){
+        $('#username').on('keyup', function(){
+            var username = $("#username").val();
+            alert(username);
+        });
+    });
+</script>
 </body>
 </html>
