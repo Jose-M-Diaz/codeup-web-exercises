@@ -41,8 +41,9 @@
 
 
     var konami = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
-    var smashBros =[38, 38, 38, 65, 66, 40, 13]
-    var metalSlug = [40, 40,37,39,65,65,13]
+    var smashBros =[38, 38, 38, 65, 66, 40, 13];
+    var metalSlug = [40, 40,37,39,65,65,13];
+    var starwars = [65,66,65,66,13];
     var userCode =[];
     var img = document.getElementById('image');
 
@@ -83,7 +84,17 @@
             document.getElementById("title").innerHTML = 'Grenade out!!!'
             document.getElementById('metal').innerHTML = '<iframe src="https://www.retrogames.cc/embed/9162-metal-slug-4-ngm-2630.html?autoplay=1" allow="autoplay" width="600" height="450" frameborder="no" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" scrolling="no"></iframe>'
             };
+        if (JSON.stringify(userCode) === JSON.stringify(starwars)) {
+            var fighter = new Audio('audio/blast-3.mp3');
+            $('h1').css('visibility', 'hidden');
+            $('body').css({
+                'background': 'url(img/starwars.gif)',
+                'background-size': 'cover',
+                'background-repeat': 'no-repeat'
+            });
+            fighter.play();
 
+        }
 
         // function showImage() {
         //     var img = document.getElementById('image');
