@@ -1,0 +1,22 @@
+*{
+    color: grey;
+}
+.container {
+    width: 800px;
+    height: 700px;
+    margin: 60px auto;
+    background-image: url("/img/game.png");
+    background-position: center;
+    border-radius: 5%;
+}
+.gameName{
+    text-align: center;
+}
+#opponents{
+    text-align: center;
+}
+#options{
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+}
