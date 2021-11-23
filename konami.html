@@ -27,23 +27,26 @@
 </head>
 <body>
 <h1 id="title" style="text-align: center">Got any cheat codes?</h1>
+
 <div style="text-align: center">
-<img id="image" src="" alt="" style="display: inline">
+    <img id="image" src="" alt="" style="display: inline">
 </div>
+
 <div id="game" style="float: right"></div>
+
 <div id="metal"></div>
 
 </body>
+
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script src="/js/jquery.js"></script>
 <script>
     "use strict";
 
-
-    var konami = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
-    var smashBros =[38, 38, 38, 65, 66, 40, 13];
-    var metalSlug = [40, 40,37,39,65,65,13];
-    var starwars = [65,66,65,66,13];
+    var konami = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13]; //original
+    var smashBros =[38, 38, 38, 65, 66, 40, 13]; //captain falcon
+    var metalSlug = [40, 40,37,39,65,65,13]; // metalslug game
+    var starWars = [65,66,65,66,13]; //tie fighter view
     var userCode =[];
     var img = document.getElementById('image');
 
@@ -84,7 +87,7 @@
             document.getElementById("title").innerHTML = 'Grenade out!!!'
             document.getElementById('metal').innerHTML = '<iframe src="https://www.retrogames.cc/embed/9162-metal-slug-4-ngm-2630.html?autoplay=1" allow="autoplay" width="600" height="450" frameborder="no" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" scrolling="no"></iframe>'
             };
-        if (JSON.stringify(userCode) === JSON.stringify(starwars)) {
+        if (JSON.stringify(userCode) === JSON.stringify(starWars)) {
             var fighter = new Audio('audio/blast-3.mp3');
             $('h1').css('visibility', 'hidden');
             $('body').css({
