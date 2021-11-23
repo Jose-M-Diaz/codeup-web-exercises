@@ -17,12 +17,13 @@
     <h3 class="contestants" style="text-align: center">Player vs. Computer</h3>
     <hr>
     <h4 class="choice" style="text-align: center">Choose your weapon</h4>
+<!--    Options for player to choose from-->
     <div id="options" class="row">
-        <button type="button" class="options btn-lg">Rock</button>
-        <button type="button" class="options btn-lg">Paper</button>
-        <button type="button" class="options btn-lg">Scissors</button>
-        <button type="button" class="options btn-lg">Lizard</button>
-        <button type="button" class="options btn-lg">Spock</button>
+        <button type="button" id="rock" class="options btn-lg">Rock</button>
+        <button type="button" id="paper" class="options btn-lg">Paper</button>
+        <button type="button" id="scissors" class="options btn-lg">Scissors</button>
+        <button type="button" id="lizard" class="options btn-lg">Lizard</button>
+        <button type="button" id="spock" class="options btn-lg">Spock</button>
     </div>
     <div id="opponents" class="row">
         <div id="player" class="col-4">Player</div>
@@ -31,14 +32,17 @@
     </div>
     <div id="image" class="row">
         <div id="playerImg" class="image col-4">
-            <img src="img/human.png" alt="human player">
+            <img id="human" src="img/human.png" alt="human player">
         </div>
         <div id="vs" class="image col-4">
-            <img src="img/vs.png" alt="versus">
+            <img id="skynet" src="img/vs.png" alt="versus">
         </div>
         <div id="computer" class="image col-4">
             <img src="img/robot.png" alt="robot">
         </div>
+    </div>
+    <div id="result" class="row justify-content-center">
+        <h2 id="decision">Winner is?</h2>
     </div>
 </div>
 
@@ -46,5 +50,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+<script src="js/Mini-Project.js"></script>
 </body>
 </html>
