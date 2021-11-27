@@ -1,81 +1,97 @@
-'use strict';
+var choiceButtons = document.querySelectorAll('[data-selection]');
+var column = document.querySelector('[data-final-column]');
+var computerScore = document.querySelector('[data-computer-score]');
+var playerScore = document.querySelector('[data-player-score]');
+var options = [
+    {
+        name: 'rock',
+        symbol: '🪨',
+        defeats: 'scissors'
+    },
+    {
+        name: 'rock',
+        symbol: '🪨',
+        defeats: 'lizard'
+    },
+    {
+        name: 'paper',
+        symbol: '📜',
+        defeats: 'rock'
+    },
+    {
+        name: 'paper',
+        symbol: '📜',
+        defeats: 'spock'
+    },
+    {
+        name: 'scissors',
+        symbol: '✂️',
+        defeats: 'paper'
+    },
+    {
+        name: 'scissors',
+        symbol: '✂️',
+        defeats: 'lizard'
+    },
+    {
+        name: 'lizard',
+        symbol: '🦎',
+        defeats: 'paper'
+    },
+    {
+        name: 'lizard',
+        symbol: '🦎',
+        defeats: 'spock'
+    },
+    {
+        name: 'spock',
+        symbol: '🖖',
+        defeats: 'rock'
+    },
+    {
+        name: 'spock',
+        symbol: '🖖',
+        defeats: 'scissors'
+    }];
 
-var img = document.querySelector('#human')
-var cImg = document.querySelector('#skynet')
-let playerScore = 0;
-let pcScore = 0;
+function randomSelection() {
+    var randomChoice = Math.floor(Math.random() * options.length);
+    return options[randomChoice];
+};
 
-$( document ).ready(function() {
-    console.log( "ready!" );
-
-    function computerChoice() {
-        var pcChoices = ['rock', 'paper', 'scissor', 'lizard', 'spock'];
-        var randomChoice = Math.floor(Math.random() * pcChoices.length);
-
-        return pcChoices[randomChoice];
-    }
-
-    $("#scissors").on('click', function(){
-        var result = compare('scissors', computerChoice());
-        img.src = 'img/cutman.png';
-        $("#decision").html(result);
+choiceButtons.forEach(choiceButton => {
+    choiceButton.addEventListener('click', e => {
+        var selectionName = choiceButton.dataset.selection;
+        var selection = options.find(selection => selection.name === selectionName);
+        makeSelection(selection);
     });
-
-    $('#rock').on('click', function(){
-        var result = compare('rock', computerChoice());
-        img.src = 'img/rock.png';
-        $("#decision").html(result);
-    });
-
-    $('#paper').on('click', function(){
-        var result = compare('paper', computerChoice());
-        img.src = 'img/paperscroll.png';
-        $("#decision").html(result);
-    });
-    $('#lizard').on('click', function(){
-        var result = compare('paper', computerChoice());
-        img.src = 'img/lizard.png';
-        $("#decision").html(result);
-    });
-    $('#spock').on('click', function(){
-        var result = compare('paper', computerChoice());
-        img.src = 'img/spock.png';
-        $("#decision").html(result);
-    });
-
-
-    var compare = function(player, computer) {
-        if(player === 'rock') {
-
-            if(computer === 'rock') {
-                return 'Tie';
-            } else if (computer === 'paper') {
-                return 'My rock lost to paper :(';
-            } else if (computer === 'scissors') {
-                return 'My rock crushed scissors! >:)';
-            }
-
-        } else if (player === 'paper') {
-
-            if(computer === 'paper') {
-                return 'Tie';
-            } else if (computer === 'rock') {
-                return 'My paper beat rock :)';
-            } else if (computer === 'scissors') {
-                return 'My paper got cut by scissors! >:)';
-            }
-        } else if (player === 'scissors') {
-
-            if(computer === 'scissors') {
-                return 'Tie';
-            } else if (computer === 'paper') {
-                return 'My scissor beat paper :(';
-            } else if (computer === 'rock') {
-                return 'My scissor got crushed! >:)';
-            }
-        } else {
-            return "That doesn't make any sense!"
-        }
-    };
-
 });
+
+function makeSelection(selection) {
+    var computerSelection = randomSelection();
+    var youWin = winner(selection, computerSelection);
+    var pcWin = winner(computerSelection, selection);
+
+    selectionResult(computerSelection, pcWin);
+    selectionResult(selection, youWin);
+
+    if(youWin) increment(playerScore);
+    if(pcWin) increment(computerScore);
+
+};
+
+function selectionResult(selection, isWinner) {
+    var div = document.createElement('div');
+    div.innerText = selection.symbol;
+    div.classList.add('result-selection');
+    if (isWinner) div.classList.add('winner');
+    column.after(div);
+};
+
+function winner(selection, opponentSelection) {
+    return selection.defeats === opponentSelection.name;
+};
+
+function increment(score) {
+    score.innerText = parseInt(score.innerText) + 1;
+};

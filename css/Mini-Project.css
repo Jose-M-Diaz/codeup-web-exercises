@@ -1,29 +1,59 @@
-*{
-    color: ghostwhite;
-    font-family: 'Geostar Fill', cursive;
-    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+body {
+    background-color: black;
+    color: white;
 }
 .container {
-    width: 800px;
-    height: 700px;
-    margin: 60px auto;
     background-image: url("/img/game.png");
-    background-position: center;
-    border-radius: 5%;
+    background-repeat: no-repeat;
+    padding-bottom: 35em;
+    padding-right: 5em;
+    margin: 5em;
 }
-.gameName{
-    text-align: center;
-}
-#opponents{
-    text-align: center;
-}
-#options{
-    text-align: center;
+
+
+.selections {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
 }
-img{
-    width: 250px;
-    height: 250px;
-    filter: drop-shadow(2px 10px 4px ghostwhite);
+
+.selection {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 5rem;
+    transition: 100ms;
+}
+
+.selection:hover {
+    transform: scale(1.2);
+}
+
+.result-selection {
+    opacity: .5;
+}
+
+.result-selection.winner {
+    opacity: 1;
+    font-size: 2rem;
+}
+
+
+.score {
+    margin-left: .1em;
+    font-size: 12px;
+}
+
+.results {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    align-items: center;
+    font-size: 60px;
+
+}
+
+.name {
+
 }
