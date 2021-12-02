@@ -3,8 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <title>Mapbox</title>
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet' />
+
 </head>
 <body>
+<h1>Welcome to Mapbox</h1>
 
+<div id='map' style='width: 400px; height: 300px;'></div>
+
+<script src="js/keys.js"></script> <!--above any cdn linked-->
+<script>
+    mapboxgl.accessToken = MAPBOX_KEY
+    const map = new mapboxgl.Map({
+    container: 'map', // container ID
+    style: 'mapbox://styles/mapbox/streets-v11', // style URL
+    center: [-98.4683, 29.5312], // starting position [lng, lat]
+    zoom: 8 // starting zoom
+    });
+
+    //Markers
+    //instantiate a new marker object
+    var codeup = new mapboxgl.Marker({
+        color: 'blue',
+
+    })
+        .setLngLat([-98.48615, 29.426827]).setDraggable(true);
+
+    codeup.addTo(map);
+
+    //must use .on method to recognize event
+    codeup.on('dragend', function(){
+        console.log("the journey is over")
+    }) //gives a message after marker is stopped being dragged
+
+    //Popups
+    var popup = new mapboxgl.Popup();
+//can chain these for less code
+    popup.setLngLat(codeup.getLngLat())
+    popup.setHTML('<h3>hey you</h3>')
+    popup.addTo(map)
+
+</script>
 </body>
 </html>
