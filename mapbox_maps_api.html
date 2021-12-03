@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mapbox Maps</title>
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet' />
+
+    <style>
+        #map {
+            /* the width and height may be set to any size */
+            width: 100%;
+            height: 500px;
+        }
+    </style>
+
+</head>
+<body>
+
+<div id='map'></div>
+<div id="menu">
+    <input id="zoom5" type="radio" name="rtoggle" value="zoom5">
+    <!-- See a list of Mapbox-hosted public styles at -->
+    <!-- https://docs.mapbox.com/api/maps/styles/#mapbox-styles -->
+    <label for="zoom5">5x zoom</label>
+    <input id="zoom15" type="radio" name="rtoggle" value="zoom15">
+    <label for="zoom15">15x zoom</label>
+    <input id="zoom20" type="radio" name="rtoggle" value="zoom20">
+    <label for="zoom20">20x zoom</label>
+</div>
+
+<script src="js/keys.js"></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+
+<script>
+    mapboxgl.accessToken = MAPBOX_KEY;
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v9',
+        zoom: 10,
+        center: [-98.4916, 29.4252]
+    });
+
+
+
+    document.querySelector("#zoom5").addEventListener('click', function() {
+        map.setZoom(map.getZoom() + 5);
+    });
+    document.querySelector("#zoom15").addEventListener('click', function() {
+        map.setZoom(map.getZoom() + 15);
+    });
+    document.querySelector("#zoom20").addEventListener('click', function() {
+        map.setZoom(map.getZoom() + 20);
+    });
+
+    // var marker = new mapboxgl.Marker()
+    // .setLngLat([-98.6339356, 29.5713201])
+    // .addTo(map);
+    //
+    // map.on('click',(e) =>{
+    //     var popup = new mapboxgl.Popup()
+    //         .setLngLat(marker.getLngLat())
+    //         .setHTML("<p>Ezekiel's Tacos</p>")
+    //         .addTo(map)
+    // });
+
+    var faveRestaurant = [{
+        name: "Ezekiel's Tacos",
+        address: '13535 Babcock Rd, San Antonio, TX 78249',
+        location: [-98.6339356, 29.5713201]
+    },
+    {
+        name: "Lin's Express",
+        address: '11911 Culebra Rd, San Antonio, TX 78253',
+        location: [-98.7306116, 29.5037706]
+    },
+    {
+        name: "Chama Gaucha",
+        address: '18318 Sonterra Pl, San Antonio, TX 78258',
+        location: [-98.4982314, 29.6136263]
+    }];
+
+    faveRestaurant.forEach(function (restaurant) {
+        var marker = new mapboxgl.Marker()
+            .setLngLat(restaurant.location)
+            .addTo(map);
+
+        map.on('click', (e) => {
+            var Popup = new mapboxgl.Popup()
+                .setLngLat(marker.getLngLat())
+                .setHTML(restaurant.name + '<br>' + restaurant.address)
+                .addTo(map);
+        });
+
+        });
+
+</script>
+</body>
+</html>

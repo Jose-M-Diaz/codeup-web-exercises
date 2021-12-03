@@ -19,9 +19,9 @@ function geocode(search, token) {
     return fetch(baseUrl + endPoint + encodeURIComponent(search) + '.json' + "?" + 'access_token=' + token)
         .then(function(res) {
             return res.json();
-            // to get all the data from the request, comment out the following three lines...
-        //}).then(function(data) {
-        //    return data.features[0].center;
+            //to get all the data from the request, comment out the following three lines...
+        }).then(function(data) {
+           return data.features[0].center;
         });
 }
 // geocode("San Antonio", MAPBOX_KEY).then(function(results) {
@@ -49,9 +49,9 @@ function reverseGeocode(coordinates, token) {
             return res.json();
         })
         // to get all the data from the request, comment out the following three lines...
-        // .then(function(data) {
-        //     return data.features[0].place_name;
-        // });
+        .then(function(data) {
+            return data.features[0].place_name;
+        });
 }
 // reverseGeocode({lat: 32.77, lng: -96.79}, MAPBOX_KEY).then(function(results) {
 //        console.log(results)
