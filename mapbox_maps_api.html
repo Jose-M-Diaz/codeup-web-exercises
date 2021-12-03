@@ -13,6 +13,10 @@
             width: 100%;
             height: 500px;
         }
+        img {
+            width: 200px;
+            height:200px
+        }
     </style>
 
 </head>
@@ -29,6 +33,12 @@
     <input id="zoom20" type="radio" name="rtoggle" value="zoom20">
     <label for="zoom20">20x zoom</label>
 </div>
+<br>
+<form action='address-finder'>
+    <label for="address">Search Location</label>
+    <input type="text" id="address" name="address"><br>
+    <input type="submit" value="Submit">
+</form>
 
 <script src="js/keys.js"></script>
 <script src="js/mapbox-geocoder-utils.js"></script>
@@ -69,24 +79,27 @@
     var faveRestaurant = [{
         name: "Ezekiel's Tacos",
         address: '13535 Babcock Rd, San Antonio, TX 78249',
-        location: [-98.6339356, 29.5713201]
+        location: [-98.6339356, 29.5713201],
+        image: 'img/zeke.jpeg'
     },
     {
         name: "Lin's Express",
         address: '11911 Culebra Rd, San Antonio, TX 78253',
-        location: [-98.7306116, 29.5037706]
+        location: [-98.7306116, 29.5037706],
+        image: 'img/lins.jpeg'
     },
     {
         name: "Chama Gaucha",
         address: '18318 Sonterra Pl, San Antonio, TX 78258',
-        location: [-98.4982314, 29.6136263]
+        location: [-98.4982314, 29.6136263],
+        image: 'img/chama.jpg'
     }];
 
 
         faveRestaurant.forEach(function(restaurant) {
             geocode(restaurant.location, MAPBOX_KEY).then(function(results) {
                 var popup = new mapboxgl.Popup()
-                    .setHTML('<h3>' + restaurant.name + '</h3>' + '<p>' + restaurant.address + '</p>');
+                    .setHTML('<h3>' + restaurant.name + '</h3>' + '<p>' + restaurant.address + '</p>' + '<img src="' + restaurant.image +'">');
                 var marker = new mapboxgl.Marker()
                     .setLngLat(results)
                     .addTo(map)
