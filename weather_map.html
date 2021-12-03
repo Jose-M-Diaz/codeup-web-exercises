@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Map</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet' />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-light bg-primary">
+            <span class="navbar-brand mb-0 h1 text-white">Weather App</span>
+        </nav>
+    </header>
+
+    <br>
+
+    <section class="container-fluid">
+    <form class="form-inline">
+        <div class="form-group mb-2">
+            <label class="searchPlace">Place</label>
+        </div>
+        <div class="form-group mx-sm-3 mb-2">
+            <label for="userInput" class="sr-only"></label>
+            <input type="text" class="form-control" id="userInput" placeholder="City, State, or Address">
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Search</button>
+    </form>
+    </section>
+    <br>
+    <!--day cards-->
+    <section class="container-fluid">
+        <div class="row col-12 justify-content-between">
+        <div class="card text-center" style="width: 15rem;">
+            <div class="card-header">
+                Featured
+            </div>
+            <div id="1st-day">
+                <p class="temp">j</p>
+                <p class="icon">d</p>
+                <p class="description">d</p>
+                <p class="humidity">d</p>
+                <p class="wind">d</p>
+                <p class="pressure">d</p>
+            </div>
+        </div>
+
+        <div class="card text-center" style="width: 15rem;">
+            <div class="card-header">
+                Featured
+            </div>
+            <div id="2nd-day">
+                <p class="temp">j</p>
+                <p class="icon">d</p>
+                <p class="description">d</p>
+                <p class="humidity">d</p>
+                <p class="wind">d</p>
+                <p class="pressure">d</p>
+            </div>
+        </div>
+
+        <div class="card text-center" style="width: 15rem;">
+            <div class="card-header">
+                Featured
+            </div>
+            <div id="3rd-day">
+                <p class="temp">j</p>
+                <p class="icon">d</p>
+                <p class="description">d</p>
+                <p class="humidity">d</p>
+                <p class="wind">d</p>
+                <p class="pressure">d</p>
+            </div>
+        </div>
+
+        <div class="card text-center" style="width: 15rem;">
+            <div class="card-header">
+                Featured
+            </div>
+            <div id="4th-day">
+                <p class="temp">j</p>
+                <p class="icon">d</p>
+                <p class="description">d</p>
+                <p class="humidity">d</p>
+                <p class="wind">d</p>
+                <p class="pressure">d</p>
+            </div>
+        </div>
+
+        <div class="card text-center" style="width: 15rem;">
+            <div class="card-header">
+                Featured
+            </div>
+            <div id="5th-day">
+                <p class="temp">j</p>
+                <p class="icon">d</p>
+                <p class="description">d</p>
+                <p class="humidity">d</p>
+                <p class="wind">d</p>
+                <p class="pressure">d</p>
+            </div>
+        </div>
+        </div>
+    </section>
+    <br>
+    <section>
+        <div id='map' style='width: auto; height: 600px;'></div>
+    </section>
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script src="js/mapbox-geocoder-utils.js"></script>
+    <script src="js/keys.js"></script>
+    <script>
+        mapboxgl.accessToken = MAPBOX_KEY
+        const map = new mapboxgl.Map({
+            container: 'map', // container ID
+            style: 'mapbox://styles/mapbox/streets-v11', // style URL
+            center: [-98.4683, 29.5312], // starting position [lng, lat]
+            zoom: 10 // starting zoom
+        });
+
+        $.get("http://api.openweathermap.org/data/2.5/onecall", {
+            APPID: OPEN_WEATHER_KEY,
+            lat:    29.423017,
+            lon:   -98.48527,
+            units: "imperial"
+        }).done(function(data) {
+            console.log('5 day forecast', data);
+            console.log('A step further - information for tomorrow: ', data.daily[1]);
+        });
+
+
+
+    </script>
+
+</body>
+</html>

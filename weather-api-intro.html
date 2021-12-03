@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>How to Open Weather Map</title>
+</head>
+<body>
+    <h1>Open your console</h1>
+    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+    <script src="js/keys.js"></script>
+    <script>
+        $.get("https://api.openweathermap.org/data/2.5/onecall?lat=29.7604&lon=-95.3698&appid="+OPEN_WEATHER_KEY).done(function(data){
+            console.log(data);
+        });
+
+    </script>
+
+</body>
+</html>
