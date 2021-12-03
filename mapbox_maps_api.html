@@ -82,19 +82,19 @@
         location: [-98.4982314, 29.6136263]
     }];
 
-    faveRestaurant.forEach(function (restaurant) {
-        var marker = new mapboxgl.Marker()
-            .setLngLat(restaurant.location)
-            .addTo(map);
 
-        map.on('click', (e) => {
-            var Popup = new mapboxgl.Popup()
-                .setLngLat(marker.getLngLat())
-                .setHTML(restaurant.name + '<br>' + restaurant.address)
-                .addTo(map);
+        faveRestaurant.forEach(function(restaurant) {
+            geocode(restaurant.location, MAPBOX_KEY).then(function(results) {
+                var popup = new mapboxgl.Popup()
+                    .setHTML('<h3>' + restaurant.name + '</h3>' + '<p>' + restaurant.address + '</p>');
+                var marker = new mapboxgl.Marker()
+                    .setLngLat(results)
+                    .addTo(map)
+                    .setPopup(popup);
+            });
         });
 
-        });
+
 
 </script>
 </body>
