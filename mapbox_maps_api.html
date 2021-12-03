@@ -25,8 +25,6 @@
 <div id='map'></div>
 <div id="menu">
     <input id="zoom5" type="radio" name="rtoggle" value="zoom5">
-    <!-- See a list of Mapbox-hosted public styles at -->
-    <!-- https://docs.mapbox.com/api/maps/styles/#mapbox-styles -->
     <label for="zoom5">5x zoom</label>
     <input id="zoom15" type="radio" name="rtoggle" value="zoom15">
     <label for="zoom15">15x zoom</label>
@@ -37,7 +35,7 @@
 <form action='address-finder'>
     <label for="address">Search Location</label>
     <input type="text" id="address" name="address"><br>
-    <input type="submit" value="Submit">
+    <input id="submit" type="submit" value="Submit">
 </form>
 
 <script src="js/keys.js"></script>
@@ -49,20 +47,20 @@
     var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v9',
-        zoom: 10,
+        zoom: 9,
         center: [-98.4916, 29.4252]
     });
 
 
 
     document.querySelector("#zoom5").addEventListener('click', function() {
-        map.setZoom(map.getZoom() + 5);
+        map.setZoom(5);
     });
     document.querySelector("#zoom15").addEventListener('click', function() {
-        map.setZoom(map.getZoom() + 15);
+        map.setZoom(15);
     });
     document.querySelector("#zoom20").addEventListener('click', function() {
-        map.setZoom(map.getZoom() + 20);
+        map.setZoom(20);
     });
 
     // var marker = new mapboxgl.Marker()
