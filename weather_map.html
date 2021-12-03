@@ -117,24 +117,33 @@
     <script src="js/mapbox-geocoder-utils.js"></script>
     <script src="js/keys.js"></script>
     <script>
+        $(document).ready(function(){
         mapboxgl.accessToken = MAPBOX_KEY
         const map = new mapboxgl.Map({
             container: 'map', // container ID
-            style: 'mapbox://styles/mapbox/streets-v11', // style URL
+            style: 'mapbox://styles/mapbox/dark-v10', // style URL
             center: [-98.4683, 29.5312], // starting position [lng, lat]
             zoom: 10 // starting zoom
         });
 
+            var marker = new mapboxgl.Marker({
+                draggable: true,
+                color: 'green'
+            })
+                .setLngLat([-98.4916, 29.4252])
+                .addTo(map);
+
         $.get("http://api.openweathermap.org/data/2.5/onecall", {
             APPID: OPEN_WEATHER_KEY,
-            lat:    29.423017,
-            lon:   -98.48527,
+            lat:    29.4252,
+            lon:   -98.4916,
             units: "imperial"
         }).done(function(data) {
             console.log('5 day forecast', data);
             console.log('A step further - information for tomorrow: ', data.daily[1]);
         });
 
+        });
 
 
     </script>
