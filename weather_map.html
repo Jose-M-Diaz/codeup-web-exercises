@@ -13,7 +13,23 @@
     <style>
         body{
             font-family: 'Teko', sans-serif;
-            font-size: 18px;
+            font-size: 19px;
+            background: url("img/cloudy.jpeg");
+            background-size: cover;
+            text-shadow: 2px 2px 3px black, 0 0 25px grey, 0 0 6px darkgray;
+        }
+        .card{
+            background-color: transparent;
+            border-color: white;
+            border-radius: 10px;
+            color: whitesmoke;
+
+        }
+        .navbar-brand {
+            font-size: 30px;!important;
+        }
+        .searchPlace {
+           color: whitesmoke;
         }
     </style>
 </head>
@@ -33,7 +49,7 @@
         </div>
         <div class="form-group mx-sm-3 mb-2">
             <label for="userInput" class="sr-only"></label>
-            <input type="text" class="searchBox" id="userInput" placeholder="City, State, or Address">
+            <input type="search" class="searchBox" id="userInput" placeholder="City, State, or Address">
         </div>
         <button type="submit" class="btn btn-primary mb-2">Search</button>
     </form>
@@ -54,11 +70,11 @@
 <!--                <p id="wind"></p>-->
 <!--                <p id="pressure"></p>-->
 
-            </div>
-        </div>
+<!--            </div>-->
+<!--        </div>-->
 
 
-        </div>
+<!--        </div>-->
     </section>
     <br>
 

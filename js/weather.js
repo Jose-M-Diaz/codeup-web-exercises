@@ -1,11 +1,14 @@
 'use strict';
 
+var lat = 29.5312;
+var lon = -98.4683;
+var search = $('#userInput').value;
 
 $(document).ready(function() {
     $.get("http://api.openweathermap.org/data/2.5/onecall", {
         APPID: OPEN_WEATHER_KEY,
-        lat: 29.5312,
-        lon: -98.4683,
+        lat: lat,
+        lon: lon,
         units: "imperial"
     }).done(function (data) {
 
@@ -35,42 +38,42 @@ $(document).ready(function() {
     const map = new mapboxgl.Map({
         container: 'map', // container ID
         style: 'mapbox://styles/mapbox/dark-v10', // style URL
-        center: [-98.4683, 29.5312], // starting position [lng, lat]
+        center: [lon, lat], // starting position [lng, lat]
         zoom: 10 // starting zoom
     })
     // Add zoom and rotation controls to the map.
     map.addControl(new mapboxgl.NavigationControl());
 
-    var marker = new mapboxgl.Marker({
-        draggable: true,
+    //places movable marker on central location
+    var dropPin = new mapboxgl.Marker({
         color: 'green'
-    }).setLngLat([-98.4683, 29.5312]).addTo(map);
+    }).setLngLat([lon, lat]).setDraggable(true);
+    dropPin.addTo(map);
 
+    dropPin.on('dragend', function () {
+        let lngLat = dropPin.getLngLat();
 
-//draggable marker
-//     var marker = new mapboxgl.Marker({
-//         draggable: true,
-//         color: 'green'
-//     }).setLngLat(result[0],result[1]).addTo(map);
+        lat = lngLat.lat;
+        lon = lngLat.lng;
+        console.log(lat);
+        console.log(lon)
+    });
 
+    const button = document.querySelector('.btn');
+    button.addEventListener('click', (e) => {
+        e.preventDefault();
+        geocode($('#userInput').value, MAPBOX_KEY).then(function (results) {
+            lon = results[0];
+            lat = results[1];
 
-
-//collects data for long and lat when dragging ends
-//     marker.on('dragend', function () {
-//         //console.log(marker.getLngLat());
-//         $('#userInput').html(marker.getLngLat())
-//     });
-
-    // var search = document.querySelector('#userInput');
-    // var button = document.querySelector('.btn');
-    //
-    // button.addEventListener('click', (e) =>{
-    //     e.preventDefault()
-    //     const currentVal = search.value;
-    //     map.center(currentVal);
-    // })
-
+            map.flyTo({
+                center: [lon, lat],
+                zoom: 10,
+                essential: true // this animation is considered essential with respect to prefers-reduced-motion
+            });
+            console.log("The term searched for was " + search);
+        });
+    });
 
 });
 
-//for
