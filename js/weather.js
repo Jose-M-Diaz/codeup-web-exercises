@@ -18,6 +18,7 @@ $(document).ready(function(){
         color: 'green'
     }).setLngLat([-98.4916, 29.4252]).addTo(map);
 
+//collects data for long and lat when dragging ends
     marker.on('dragend', function() {
         console.log(marker.getLngLat());
     })
@@ -53,15 +54,19 @@ $(document).ready(function(){
             }
 
 
-            //use of the search button
-            var btn = document.querySelector('.btn')
-            btn.addEventListener('click', function (e) {
-                e.preventDefault();
-                var search = document.querySelector('#userInput').value;
-            });
+
 
 
         });
+    var search = $('#userInput').value
+    //use of the search button
+    document.querySelector('.btn').addEventListener('click', function (e) {
+        e.preventDefault();
+        map.flyTo({
+            center: search,
+        });
+        console.log(search)
+    });
 
 
 });
