@@ -42,6 +42,9 @@ const users = [
 const language = users.filter(user => user.languages.includes('php', 'css', 'java',));
 console.log(language);
 
+const getLanguages = users.filter((language) => language.languages.length > 2);
+console.log(getLanguages); //other method
+
 // Map Use .map to create an array of strings where each element is a user's email address
 const emails = users.map(x => x.email);
 console.log(emails);
@@ -57,5 +60,6 @@ console.log(longestEmail);
 // Reduce Use .reduce to get the list of user's names in a single string. Example: Your instructors are: ryan, luis, zach, fernando, justin.
 const userNames = users.reduce((prevVal,currVal,idx) => idx === 0 ? currVal.name : prevVal + ', ' + currVal.name, '')
 console.log(userNames);
+
 
 
