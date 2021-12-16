@@ -2,24 +2,27 @@
 <html>
 <head>
     <title>Online Store</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 </head>
 <body>
 
-<h1>My Tool Store</h1>
+<h1 class="text-center">My Tool Store</h1>
 
-<table id="products" class="container">
-    <thead class="row text-center">
+<table id="" class="table table-dark">
+    <thead>
         <tr>
-            <th class="col3">Title</th>
-            <th class="col3">Quantity</th>
-            <th class="col3">Price</th>
-            <th class="col3">Categories</th>
+            <th scope="col">Title</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+            <th scope="col">Categories</th>
         </tr>
     </thead>
     <tbody id="insertProducts"></tbody>
 </table>
+<button type="reset" class="reload">Refresh Page</button>
 
-<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 
 <script>
 (function() {
@@ -29,22 +32,26 @@
     //       HINT: Your data should come back as a JSON object; use console.log() to inspect
     //             its contents and fields
     //       HINT: You will want to target #insertProducts for your new HTML elements
-    $.ajax("data/inventory.json", {
-        "format": "json"
-    }).done(function (response) {
-        console.log(response.title);
-        var html = "";
-        for(var i = 0; i < response.length; i++) {
-            html +=
-                '<tr>' +
-                '<th>' + (i + 1) + '</th>' +
-                '<td>' + response[i].title + '</td>' +
-                '<td>' + response[i].quantity + '</td>' +
-                '<td>' + response[i].price + '</td>' +
-                '<td>' + response[i].categories + '</td>' +
-                '</tr>'
-        }
-        $('#insertProducts').append(html);
+
+    function inventory() {
+        $.get("data/inventory.json").done(function (data) {
+            $('#insertProducts').html('')
+            data.forEach(function (item) {
+                var html = '<tr>';
+                html += '<td>' + item.title + '</td>';
+                html += '<td>' + item.quantity + '</td>';
+                html += '<td>' + item.price + '</td>';
+                html += '<td>' + item.categories + '</td>';
+                html += '</tr>';
+                $('#insertProducts').append(html);
+            });
+        });
+
+    };
+
+    $('.reload').click(function (e) {
+        e.preventDefault();
+        inventory();
     });
 
 })();
