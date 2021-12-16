@@ -3,24 +3,23 @@
 
 
 $(document).ready(function() {
-    var lat;
-    var lon;
+    //var lat;
+    //var lon;
     //Get the forecast for 5 days using coordinates of variables lon and lat
-    let getWeather = () => {
-        lat = 29.5312;
-        lon = -98.4683;
+    let getWeather = (lat, lon) => {
+        //lat = 29.5312;
+        //lon = -98.4683;
         $.get("http://api.openweathermap.org/data/2.5/onecall", {
             APPID: OPEN_WEATHER_KEY,
             lat: lat,
             lon: lon,
             units: "imperial"
         }).done(function (data) {
-
+            var card = "";
             for (var i = 0; i < 5; i++) {
-                var card = "";
                 var location = data.daily[i].weather[0].icon;
                 var icon = '<img src="http://openweathermap.org/img/w/' + location + '.png" alt="weather icon"/>'
-                card = '<div class="row">' +
+                card += '<div class="row">' +
                     '<div class="card text-center" style="width: 15rem;">' +
                     '<div id="card">' +
                     '<br>' +
@@ -35,19 +34,19 @@ $(document).ready(function() {
                     '</div>' +
                     '</div>'
                 //console.log(card);
-                $('#container').append(card);
+                $('#container').html(card);
             }
         });
         console.log('call function weather')
     }
-    getWeather();
+    getWeather(29.5312, -98.4683);
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // Map of central location  being at San Antonio
         mapboxgl.accessToken = MAPBOX_KEY
         const map = new mapboxgl.Map({
             container: 'map', // container ID
             style: 'mapbox://styles/mapbox/dark-v10', // style URL
-            center: [lon, lat], // starting position [lng, lat]
+            center: [-98.4683, 29.5312], // starting position [lng, lat]
             zoom: 10 // starting zoom
         })
         // Add zoom and rotation controls to the map.
@@ -56,13 +55,18 @@ $(document).ready(function() {
         //places movable marker on central location
         var setMarker = new mapboxgl.Marker({
             color: 'green'
-        }).setLngLat([lon, lat]).setDraggable(true).addTo(map);
+        }).setLngLat(map.getCenter()).setDraggable(true).addTo(map);
 
         setMarker.on('dragend', function () {
             console.log(setMarker.getLngLat())
             setMarker.getLngLat();
         });
         console.log(setMarker)
+    var lat = setMarker.getLngLat().lat;
+    var lon = setMarker.getLngLat().lng;
+    console.log(lon)
+    console.log(lat)
+    getWeather(lat,lon)
 
 
 
@@ -94,6 +98,7 @@ $(document).ready(function() {
                 center: [lon2, lat2],
                 essential: true // this animation is considered essential with respect to prefers-reduced-motion
             });
+            getWeather(lat2,lon2)
         });
         //console log to verify that the value of input was being read
         console.log("The term searched for was " + search);
