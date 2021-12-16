@@ -7,13 +7,13 @@
 
 <h1>My Tool Store</h1>
 
-<table id="products">
-    <thead>
+<table id="products" class="container">
+    <thead class="row text-center">
         <tr>
-            <th>Title</th>
-            <th>Quantity</th>
-            <th>Price</th>
-            <th>Categories</th>
+            <th class="col3">Title</th>
+            <th class="col3">Quantity</th>
+            <th class="col3">Price</th>
+            <th class="col3">Categories</th>
         </tr>
     </thead>
     <tbody id="insertProducts"></tbody>
@@ -37,16 +37,18 @@
         for(var i = 0; i < response.length; i++) {
             html +=
                 '<tr>' +
-                '<th class="row">' + (i + 1) + '</th>' +
-                '<td class="col4">' + response[i].title + '</td>' +
-                '<td class="col4">' + response[i].quantity + '</td>' +
-                '<td class="col4">' + response[i].price + '</td>' +
-                '<td class="col4 float-right">' + response[i].categories + '</td>' +
+                '<th>' + (i + 1) + '</th>' +
+                '<td>' + response[i].title + '</td>' +
+                '<td>' + response[i].quantity + '</td>' +
+                '<td>' + response[i].price + '</td>' +
+                '<td>' + response[i].categories + '</td>' +
                 '</tr>'
         }
         $('#insertProducts').append(html);
     });
+
 })();
+
 </script>
 
 </body>
