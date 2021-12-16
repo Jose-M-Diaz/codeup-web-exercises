@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax Blog</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0fb784;
+            font-family: 'Bakbak One', cursive;
+        }
+    </style>
+</head>
+<body>
+<section class="container">
+<h1>Blog</h1>
+<div id="posts"></div>
+</section>
+</body>
+<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function () {
+
+        $.get("/data/blog.json").done(function (data) {
+            $('#posts').html('');
+            data.forEach(function (post) {
+                var html = '<div class="media">'
+                html += '<div class="Media-body">';
+                html += '<h5 class="mt-0 mb-1">' + post.title + '</h5>';
+                html += '<div class="">' + post.date + '</div>';
+                html += '<p>' + post.content + '</p>';
+                html += '<div>' + post.categories + '</div>';
+                html += '<br>';
+                html += '</div>' + '</div>';
+                $('#posts').append(html);
+            });
+        });
+
+
+    });
+
+</script>
+</html>
