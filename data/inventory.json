@@ -30,5 +30,21 @@
             "tool"
         ],
         "price": 10
+    },
+    {
+        "title": "Saw",
+        "quantity": 20,
+        "categories": [
+            "tool"
+        ],
+        "price": 70
+    },
+    {
+        "title": "Power Washer",
+        "quantity": 40,
+        "categories": [
+            "tool"
+        ],
+        "price": 230
     }
-]
+    ]
